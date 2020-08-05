@@ -1,5 +1,3 @@
-import React from "./react";
-
 const initialState = {};
 
 export default function cartReducer(state = initialState, action) {
