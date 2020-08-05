@@ -42,7 +42,8 @@ const LightText = styled.span`
 `;
 
 const Foot = styled.div`
-  position: absolute;
+  margin-top: 50px;
+  margin-left: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
