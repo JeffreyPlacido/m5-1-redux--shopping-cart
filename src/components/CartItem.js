@@ -1,12 +1,22 @@
 import React from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { removeItem } from "../actions";
+import { Icon } from "react-icons-kit";
+import { x } from "react-icons-kit/feather/x";
+import UnstyledButton from "./UnstyledButton";
 
-function CartItem({ title, quantity }) {
+function CartItem({ id, title, quantity }) {
+  const dispatch = useDispatch();
+
   return (
     <Wrapper>
       <Item>
         <Top>
           <h3>{title}</h3>
+          <CloseButton onClick={() => dispatch(removeItem({ id }))}>
+            <Icon icon={x} />
+          </CloseButton>
         </Top>
         <Bottom>
           <span className="label">Quantity:</span>
@@ -16,6 +26,11 @@ function CartItem({ title, quantity }) {
     </Wrapper>
   );
 }
+
+const CloseButton = styled(UnstyledButton)`
+  padding: 8px;
+  cursor: pointer;
+`;
 
 const Wrapper = styled.div`
   display: flex;

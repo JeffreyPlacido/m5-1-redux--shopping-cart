@@ -23,7 +23,12 @@ function Cart() {
       </Head>
       {storeItems.map((item) => {
         return (
-          <CartItem key={item.id} title={item.title} quantity={item.quantity} />
+          <CartItem
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            quantity={item.quantity}
+          />
         );
       })}
       <Foot>
