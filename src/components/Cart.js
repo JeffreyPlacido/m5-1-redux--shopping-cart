@@ -1,20 +1,35 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
+import { getStoreItems } from ".././reducers/index";
 import CartItem from "./CartItem";
 
 function Cart() {
+  const state = useSelector((state) => state);
+  const storeItems = useSelector(getStoreItems);
+
+  let totalPrice = storeItems.reduce((totalPrice, item) => {
+    return (totalPrice += item.price * item.quantity);
+  }, 0);
+
+  totalPrice = totalPrice / 100;
+
   return (
     <Wrapper>
       <Head>
         <h2>Your Cart</h2>
         <LightText>0 Items</LightText>
       </Head>
-      <CartItem />
+      {storeItems.map((item) => {
+        return (
+          <CartItem key={item.id} title={item.title} quantity={item.quantity} />
+        );
+      })}
       <Foot>
         <div>
           <span>Total:</span>
-          <Price>$0</Price>
+          <Price>{totalPrice}</Price>
         </div>
         <Button>Purchase</Button>
       </Foot>
@@ -25,7 +40,7 @@ function Cart() {
 const Wrapper = styled.div`
   position: relative;
   background-color: rgb(64, 31, 67);
-  height: 1440px;
+  height: 2000px;
   width: 100vw;
   width: 100%;
   color: white;

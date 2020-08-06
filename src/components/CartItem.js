@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-function CartItem() {
+function CartItem({ title, quantity }) {
   return (
     <Wrapper>
       <Item>
         <Top>
-          <h3>Stickers</h3>
+          <h3>{title}</h3>
         </Top>
         <Bottom>
           <span className="label">Quantity:</span>
-          <Quantity>1</Quantity>
+          <Quantity>{quantity}</Quantity>
         </Bottom>
       </Item>
     </Wrapper>
