@@ -6,7 +6,6 @@ import { getStoreItems } from ".././reducers/index";
 import CartItem from "./CartItem";
 
 function Cart() {
-  const state = useSelector((state) => state);
   const storeItems = useSelector(getStoreItems);
 
   let totalPrice = storeItems.reduce((totalPrice, item) => {

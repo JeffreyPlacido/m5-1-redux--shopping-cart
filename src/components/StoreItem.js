@@ -9,10 +9,10 @@ import Button from "./Button";
 const StoreItem = ({ id, title, src, price }) => {
   const dispatch = useDispatch();
 
-  const formattedPrice = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  }).format(price / 100);
+  // const formattedPrice = new Intl.NumberFormat("en-US", {
+  //   style: "currency",
+  //   currency: "USD",
+  // }).format(price / 100);
 
   return (
     <Wrapper>
